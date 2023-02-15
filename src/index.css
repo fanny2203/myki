@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.modal-animate-sidebar-left {
+  -webkit-animation-name: left-animate-join; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.3s; /* Safari 4.0 - 8.0 */
+  animation-name: left-animate-join;
+  animation-duration: 0.3s;
+}
+
+@-webkit-keyframes left-animate-join {
+  0%   {left:0px; top:0px;}
+  25%  {left:50px; top:0px;}
+  50%  {left:75px; top:0px;}
+  100% {left:50px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes left-animate-join {
+  0%   {left:0px; top:0px;}
+  25%  {left:25px; top:0px;}
+  50%  {left:40px; top:0px;}
+  100% {left:50px; top:0px;}
+}
+
+.modal-animate-sidebar-right {
+  -webkit-animation-name: right-animate-join; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.3s; /* Safari 4.0 - 8.0 */
+  animation-name: right-animate-join;
+  animation-duration: 0.3s;
+}
+
+@-webkit-keyframes right-animate-join {
+  0%   {right:0px; top:0px;}
+  25%  {right:50px; top:0px;}
+  100% {right:100px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes right-animate-join {
+  0%   {right:0px; top:0px;}
+  25%  {right:50px; top:0px;}
+  100% {right:100px; top:0px;}
+}
+
+.modal-animate-block {
+  -webkit-animation-name: fade-animate-join; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 0.3s; /* Safari 4.0 - 8.0 */
+  animation-name: fade-animate-join;
+  animation-duration: 0.3s;
+}
+
+@-webkit-keyframes fade-animate-join {
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Standard syntax */
+@keyframes fade-animate-join {
+  0% { opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.toast-animate {
+  position: relative;
+  -webkit-animation-name: right-animate-join; /* Safari 4.0 - 8.0 */
+  -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+  animation-name: right-animate-join;
+  animation-duration: 3s;
+}
+
+@-webkit-keyframes right-animate-join {
+  0%   {right:0px; top:0px;}
+  25%  {right:50px; top:0px;}
+  100% {right:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes right-animate-join {
+  0%   {right:0px; top:0px;}
+  25%  {right:50px; top:0px;}
+  100% {right:0px; top:0px;}
+}
+
+/* @font-face {
+  font-family: 'Roboto-Regular';
+  src: local('Roboto'), url('./resources/font/Roboto/Roboto-Regular.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Roboto-Italic';
+  src: local('Roboto'), url('./resources/font/Roboto/Roboto-Italic.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: local('Roboto'), url('./resources/font/Roboto/Roboto-Medium.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: local('Roboto'), url('./resources/font/Roboto/Roboto-Bold.ttf') format('opentype');
+} */
+
+@font-face {
+  font-family:'EingrantchMono-Medium';
+  src: url('./resources/font/EingrantchMono-Medium.ttf');
+}
+
+.font-eigrantch-mono {
+  font-family: 'EingrantchMono-Medium';  
+}
+
+body {
+  top: 0% !important;
+  z-index: 3 !important;
+  /* position: absolute !important; */
+}

@@ -1,0 +1,123 @@
+{
+  "steps": [
+      {
+          "type": "convert",
+          "steps": [
+              {
+              "column": "Value",
+              "type": "int"
+              }
+          ]
+      },
+      {
+          "type": "convert",
+          "steps": [
+              {
+              "column": "__RESULT",
+              "type": "int"
+              }
+          ]
+      },
+      {
+          "type": "filter",
+          "steps": [
+              {
+                  "_and": [
+                      {
+                          "type": "regex",
+                          "column": "Variable_category",
+                          "withValue": "Financial"
+                      },
+                      {
+                          "type": "like",
+                          "column": "Industry_name_NZSIOC",
+                          "withValue": "All"
+                      },
+                      {
+                          "type": "<",
+                          "column": "Value",
+                          "withValue": 700000
+                      }
+                  ]
+              }
+          ]    
+      },
+      {
+          "type": "replace",
+          "steps": [
+              {
+                  "type": "equal",
+                  "column": "Industry_name_NZSIOC",
+                  "withValue": "All industries",
+                  "NewValue": "ALL INDUSTRIES"
+              },
+              {
+                  "type": "<",
+                  "column": "Value",
+                  "withValue": 500000,
+                  "NewValue": 100
+              },
+              {
+                  "type": ">",
+                  "column": "Value",
+                  "withValue": 500000,
+                  "NewValue": 1000000
+              },
+              {
+                  "type": "like",
+                  "column": "Units",
+                  "withValue": "Dol",
+                  "NewValue": "DOLLARES (MILLONES)"
+              },
+              {
+                  "type": "regex",
+                  "column": "Variable_category",
+                  "withValue": "ancial",
+                  "NewValue": "ANCIAL"
+              }
+          ]
+      },
+      {
+          "type": "operation",
+          "saveResult": "Value",
+          "steps": [
+              {
+                  "operation": "+",
+                  "withValue": "555"
+              }
+          ]
+      },
+      {
+          "type": "rename",
+          "steps": [
+              {
+              "column": "Value",
+              "newName": "Valores"
+              },
+              {
+              "column": "Year",
+              "newName": "Anos"
+              },
+              {
+              "column": "Variable_code",
+              "newName": "Codigo_Variable"
+              },
+              {
+              "column": "Variable_name",
+              "newName": "Nombre_Variable"
+              }
+          ]
+      },
+      {
+          "type": "substring",
+          "steps":[
+              {
+                  "onColumn":"Industry_code_ANZSIC06",
+                  "column":"Nombre_Variable",
+                  "position":1,
+                  "length": 10
+              }
+          ]
+      }
+  ]
+}

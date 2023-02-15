@@ -1,0 +1,18 @@
+.btnTag:hover .tagsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.tagsContainer {
+  display: none;
+  position: absolute;
+  margin-top: 10px;
+  width: 200px;
+  max-height: 200px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.tagItem {
+  width: max-content;
+}

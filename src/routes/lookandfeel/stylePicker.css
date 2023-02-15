@@ -1,0 +1,15 @@
+.picker {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 1px;
+}
+
+.picker::-webkit-color-swatch {
+  border: none;
+}

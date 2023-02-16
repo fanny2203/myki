@@ -1,5 +1,3 @@
-import { useLocation } from "react-router-dom";
-
 //Globals
 import { useSelector } from "react-redux";
 

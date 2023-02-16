@@ -15,6 +15,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 import MenuAnalytics from "../analytics";
 import MenuLayouts from "../layouts";
 import Permissions from "../permissions";
+import MenuSetup from "../setupGuide";
 
 //Globlas
 import { useSelector } from "react-redux";
@@ -58,6 +59,7 @@ export default function MenuDashboard() {
         <Route path="/projects/*" element={<MenuMyProjects />} />
         <Route path="/layouts/*" element={<MenuLayouts />} />
         <Route path="/permissions/*" element={<Permissions />} />
+        <Route path="/setup/*" element={<MenuSetup />} />
       </Routes>
     </DashboardLayout>
   );

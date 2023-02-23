@@ -190,6 +190,7 @@ export default function Sidebar({ handleHidden, hidden }) {
         btn={false}
         routeCurrent={routeSelected}
       />
+      <p onClick={() => navigate("help")}>Helep</p>
     </div>
   );
 }

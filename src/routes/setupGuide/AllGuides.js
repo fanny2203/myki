@@ -9,37 +9,34 @@ import TableGuides from "./sections/TableGuides";
 //helpers
 import { makeRequest } from "../../helpers";
 
-function createData(name, actions) {
-  return { name, actions };
-}
-
-const rows = [
-  createData("Simetrical", 159),
-  createData("Car", 2),
-  createData("Projects", 262, 16.0, 24, 6.0),
-  createData("Seat", 305, 3.7, 67, 4.3),
-  createData("Distribuidor", 356, 16.0, 49, 3.9),
-  createData("Sales", 356, 16.0, 49, 3.9),
-  createData("MyNiuu test", 356, 16.0, 49, 3.9),
-  createData("Simetrical", 159),
-  createData("Car", 2),
-  createData("Projects", 262, 16.0, 24, 6.0),
-  createData("Seat", 305, 3.7, 67, 4.3),
-  createData("Distribuidor", 356, 16.0, 49, 3.9),
-  createData("Sales", 356, 16.0, 49, 3.9),
-  createData("MyNiuu test", 356, 16.0, 49, 3.9),
-];
-
-const options = ["uno", "dos"];
+//Globals
+import { useDispatch } from "react-redux";
+import { setIsLoading } from "../../features/Loader";
 
 const AllGuides = () => {
+  const [typeConnections, setTypeConnections] = useState([]);
+  const [list, setList] = useState([]);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
     getTypeConnections();
   }, []);
 
   const getTypeConnections = async () => {
+    dispatch(setIsLoading({ isLoading: true }));
     const result = await makeRequest("tutorial/type", "POST");
-    console.log("este", result);
+    setTypeConnections(result.data);
+    dispatch(setIsLoading({ isLoading: false }));
+  };
+
+  const getList = async (type) => {
+    dispatch(setIsLoading({ isLoading: true }));
+    const result = await makeRequest("tutorial/list", "POST", {
+      connector_type: type,
+    });
+    setList(result.data);
+    dispatch(setIsLoading({ setIsLoading: false }));
   };
 
   return (
@@ -49,8 +46,8 @@ const AllGuides = () => {
           Create a new
         </button>
       </HeaderSetup>
-      <Categories options={options} />
-      <TableGuides rows={rows} />
+      <Categories options={typeConnections} getList={getList} />
+      <TableGuides rows={list} />
     </div>
   );
 };

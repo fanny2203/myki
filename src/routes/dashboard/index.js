@@ -16,6 +16,7 @@ import MenuAnalytics from "../analytics";
 import MenuLayouts from "../layouts";
 import Permissions from "../permissions";
 import MenuSetup from "../setupGuide";
+import Help from "../help";
 
 //Globlas
 import { useSelector } from "react-redux";
@@ -60,6 +61,7 @@ export default function MenuDashboard() {
         <Route path="/layouts/*" element={<MenuLayouts />} />
         <Route path="/permissions/*" element={<Permissions />} />
         <Route path="/setup/*" element={<MenuSetup />} />
+        <Route path="/help/*" element={<Help />} />
       </Routes>
     </DashboardLayout>
   );
